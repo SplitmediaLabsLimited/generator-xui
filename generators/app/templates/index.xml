@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CanPause>false</CanPause>
+    <CanPlay>false</CanPlay>
+    <CanSetVolume>false</CanSetVolume>
+    <CanStepBackward>false</CanStepBackward>
+    <CanStepForward>false</CanStepForward>
+    <CanStop>false</CanStop>
+    <Description />
+    <HelpLink />
+    <HelpText />
+    <Name><%= name %></Name>
+    <param name="flashvars" value="" />
+    <ProperName><%= propname %></ProperName>
+    <Category>none</Category>
+    <ShowConfigOnAdd>true</ShowConfigOnAdd>
+    <MinCompatibleVersion>2.3.1505.0516</MinCompatibleVersion>
+    <MinFxVersion>2.3.1505.0516</MinFxVersion>
+    <Version><%= version %></Version>
+</config>
