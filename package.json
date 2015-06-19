@@ -1,6 +1,6 @@
 {
   "name": "generator-xui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "XUI Plugin generator",
   "repository": "git://github.com/SplitmediaLabsLimited/generator-xui.git",
   "files": [
