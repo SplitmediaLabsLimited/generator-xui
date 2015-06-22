@@ -1,14 +1,15 @@
 {
   "name": "generator-xui",
   "version": "0.1.3",
-  "description": "XUI Plugin generator",
+  "description": "Yeoman generator for XUI Framework",
   "repository": "git://github.com/SplitmediaLabsLimited/generator-xui.git",
   "files": [
     "app"
   ],
   "keywords": [
-    "xui-generator",
-    "yeoman-generator"
+    "yeoman-generator",
+    "xui",
+    "framework"
   ],
   "dependencies": {
     "underscore.string": "^3.1.1",
