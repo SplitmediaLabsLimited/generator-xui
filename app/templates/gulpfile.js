@@ -7,7 +7,7 @@
         browserSync = require('browser-sync').create(),
         fs          = require('fs');
 
-    gulp.task('watch', function() {
+    gulp.task('default', function() {
         browserSync.init({
             open: false,
             port: 9001,

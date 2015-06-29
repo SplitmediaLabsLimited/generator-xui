@@ -8,8 +8,6 @@
         browserSync = require('browser-sync').create(),
         fs          = require('fs');
 
-    gulp.task('default', ['compile']);
-
     gulp.task('compile', function() {
         var configBuffer = fs.readFileSync('./src/tsconfig.json');
         var config = JSON.parse(configBuffer.toString());
@@ -27,7 +25,7 @@
             .pipe(gulp.dest('js/'));
     });
 
-    gulp.task('watch', function() {
+    gulp.task('default', function() {
         browserSync.init({
             open: false,
             port: 9001,
