@@ -3,11 +3,14 @@
 (function() {
     'use strict';
 
-    var gulp       = require('gulp'),
-        typescript = require('gulp-tsc'),
-        fs         = require('fs');
+    var gulp        = require('gulp'),
+        typescript  = require('gulp-tsc'),
+        browserSync = require('browser-sync').create(),
+        fs          = require('fs');
 
-    gulp.task('default', function() {
+    gulp.task('default', ['compile']);
+
+    gulp.task('compile', function() {
         var configBuffer = fs.readFileSync('./src/tsconfig.json');
         var config = JSON.parse(configBuffer.toString());
 
@@ -22,5 +25,17 @@
         return gulp.src(config.files)
             .pipe(typescript(config.compilerOptions))
             .pipe(gulp.dest('js/'));
+    });
+
+    gulp.task('watch', function() {
+        browserSync.init({
+            open: false,
+            port: 9001,
+            server: {
+                baseDir: "./"
+            }
+        });
+
+        gulp.watch(['src/**/*.ts'], ['compile']).on('change', browserSync.reload);
     });
 })();

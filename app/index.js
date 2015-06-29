@@ -77,7 +77,11 @@ module.exports = generators.Base.extend({
     },
 
     install: function() {
-        this.bowerInstall('https://raw.githubusercontent.com/SplitmediaLabsLimited/xui/gh-pages/dist/xui.js');
+        this.bowerInstall('xui-framework#gh-pages');
+        this.npmInstall([
+            'gulp',
+            'browser-sync'
+        ], {'saveDev': true });
     },
 
     end: function() {

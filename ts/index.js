@@ -77,13 +77,12 @@ module.exports = generators.Base.extend({
     },
 
     install: function() {
-        this.bowerInstall([
-            'https://raw.githubusercontent.com/SplitmediaLabsLimited/xui/gh-pages/dist/xui.js',
-            'https://raw.githubusercontent.com/SplitmediaLabsLimited/xui/gh-pages/dist/xui.d.ts',
-            'https://raw.githubusercontent.com/SplitmediaLabsLimited/xui/gh-pages/dist/internal.d.ts',
-            'https://raw.githubusercontent.com/borisyankov/DefinitelyTyped/master/es6-promise/es6-promise.d.ts'
-        ]);
-        this.npmInstall(['gulp', 'gulp-tsc', 'es6-promise']);
+        this.bowerInstall('xui-framework#gh-pages');
+        this.npmInstall([
+            'gulp',
+            'gulp-tsc',
+            'browser-sync'
+        ], {'saveDev': true });
     },
 
     end: function() {
