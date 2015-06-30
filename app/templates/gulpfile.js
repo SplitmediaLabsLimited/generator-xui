@@ -4,15 +4,14 @@
     'use strict';
 
     var gulp        = require('gulp'),
-        browserSync = require('browser-sync').create(),
-        fs          = require('fs');
+        browserSync = require('browser-sync').create();
 
     gulp.task('default', function() {
         browserSync.init({
             open: false,
             port: 9001,
             server: {
-                baseDir: "./"
+                baseDir: './'
             }
         });
 

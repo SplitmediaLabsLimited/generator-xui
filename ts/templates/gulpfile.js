@@ -13,11 +13,7 @@
         var config = JSON.parse(configBuffer.toString());
 
         for (var i = 0; i < config.files.length; i++) {
-            if (!config.files[i].match(/bower_components/)) {
-                config.files[i] = './src' + config.files[i].substr(1);
-            } else {
-                config.files[i] = config.files[i].substr(3);
-            }
+            config.files[i] = './src' + config.files[i].substr(1);
         }
 
         return gulp.src(config.files)
@@ -30,7 +26,7 @@
             open: false,
             port: 9001,
             server: {
-                baseDir: "./"
+                baseDir: './'
             }
         });
 

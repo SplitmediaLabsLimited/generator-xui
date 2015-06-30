@@ -1,9 +1,12 @@
 var generators  = require('yeoman-generator');
+var path        = require('path');
 var _string     = require('underscore.string');
 
 module.exports = generators.Base.extend({
     constructor: function() {
         generators.Base.apply(this, arguments);
+
+        this.sourcePath = path.join(process.cwd(), 'src');
     },
 
     prompting: function() {
@@ -77,15 +80,36 @@ module.exports = generators.Base.extend({
     },
 
     install: function() {
-        this.bowerInstall('xui-framework#gh-pages');
         this.npmInstall([
             'gulp',
             'gulp-tsc',
             'browser-sync'
-        ], {'saveDev': true });
+        ], { 'saveDev': true });
+        this.bowerInstall('xui-framework#gh-pages');
     },
 
-    end: function() {
-        this.log('XUI Scaffolding complete!');
+    end: {
+        moveDefFiles: function() {
+            this.log('Moving files (Please press ENTER)');
+            this.fs.move('bower_components', 
+                path.join(this.sourcePath, 'bower_components'));
+        },
+
+        renameFile: function() {
+            this.log('Renaming Files (Please press ENTER)');
+            // Re-name es6-promise definition file
+            var defPath = path.join(
+                this.sourcePath,
+                'bower_components',
+                'es6-promise.d');
+
+            process.chdir(defPath);
+
+            this.fs.move('index.ts', 'index.d.ts');
+        },
+
+        done: function() {
+            this.log('XUI Scaffolding complete!');
+        }
     }
 });

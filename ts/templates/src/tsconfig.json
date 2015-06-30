@@ -10,12 +10,11 @@
         "noLib": false,
         "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true,
-        "outDir": "../js",
-        "out": "main.js"
+        "outDir": "../js"
     },
     "compileOnSave": false,
     "filesGlob": [
-        "./../bower_components/**/*.ts",
+        "./bower_components/**/*.ts",
         "./**/*.ts"
     ],
     "files": [
