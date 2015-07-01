@@ -21,7 +21,7 @@
             .pipe(gulp.dest('js/'));
     });
 
-    gulp.task('default', function() {
+    gulp.task('default', ['compile'], function() {
         browserSync.init({
             open: false,
             port: 9001,
@@ -30,6 +30,7 @@
             }
         });
 
-        gulp.watch(['src/**/*.ts'], ['compile']).on('change', browserSync.reload);
+        gulp.watch(['./src/**/*.ts', './src/*.ts'], ['compile'])
+            .on('change', browserSync.reload);
     });
 })();

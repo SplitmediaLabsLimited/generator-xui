@@ -26,6 +26,9 @@ gulp
 ```
 
 #### Recommended Editors
+
 [Atom](https://atom.io/) ([atom-typescript plugin](https://atom.io/packages/atom-typescript))
+
 [SublimeText](http://www.sublimetext.com/) ([TypeScript plugin](https://github.com/Microsoft/TypeScript-Sublime-Plugin))
+
 [WebStorm](https://www.jetbrains.com/webstorm/)

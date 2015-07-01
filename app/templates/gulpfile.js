@@ -15,6 +15,6 @@
             }
         });
 
-        gulp.watch(['js/**/*.js']).on('change', browserSync.reload);
+        gulp.watch(['./js/**/*.js', './js/*.js']).on('change', browserSync.reload);
     });
 })();
