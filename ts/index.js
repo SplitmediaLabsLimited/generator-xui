@@ -85,7 +85,7 @@ module.exports = generators.Base.extend({
             'gulp-tsc',
             'browser-sync'
         ], { 'saveDev': true });
-        this.bowerInstall('xui-framework#gh-pages');
+        this.bowerInstall('xui-framework');
     },
 
     end: {

@@ -77,7 +77,7 @@ module.exports = generators.Base.extend({
     },
 
     install: function() {
-        this.bowerInstall('xui-framework#gh-pages');
+        this.bowerInstall('xui-framework');
         this.npmInstall([
             'gulp',
             'browser-sync'
