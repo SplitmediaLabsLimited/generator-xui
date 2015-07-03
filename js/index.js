@@ -1,12 +1,9 @@
 var generators  = require('yeoman-generator');
-var path        = require('path');
 var _string     = require('underscore.string');
 
 module.exports = generators.Base.extend({
     constructor: function() {
         generators.Base.apply(this, arguments);
-
-        this.sourcePath = path.join(process.cwd(), 'src');
     },
 
     prompting: function() {
@@ -50,7 +47,19 @@ module.exports = generators.Base.extend({
         this.fs.copyTpl(
             this.templatePath('index.html'),
             this.destinationPath('index.html'),
-            { title: this.appname }
+            { title: this.appname, apptype: this.apptype }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('package.json'),
+            this.destinationPath('package.json'),
+            { name: this.propername, version: this.appversion }
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('bower.json'),
+            this.destinationPath('bower.json'),
+            { name: this.propername, version: this.appversion }
         );
 
         if (this.apptype === 'global-script') {
@@ -82,34 +91,12 @@ module.exports = generators.Base.extend({
     install: function() {
         this.npmInstall([
             'gulp',
-            'gulp-tsc',
             'browser-sync'
-        ], { 'saveDev': true });
+        ]);
         this.bowerInstall('xui-framework');
     },
 
-    end: {
-        moveDefFiles: function() {
-            this.log('Moving files (Please press ENTER)');
-            this.fs.move('bower_components', 
-                path.join(this.sourcePath, 'bower_components'));
-        },
-
-        renameFile: function() {
-            this.log('Renaming Files (Please press ENTER)');
-            // Re-name es6-promise definition file
-            var defPath = path.join(
-                this.sourcePath,
-                'bower_components',
-                'es6-promise.d');
-
-            process.chdir(defPath);
-
-            this.fs.move('index.ts', 'index.d.ts');
-        },
-
-        done: function() {
-            this.log('XUI Scaffolding complete!');
-        }
+    end: function() {
+        this.log('XUI Scaffolding complete!');
     }
 });

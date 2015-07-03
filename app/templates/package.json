@@ -1,0 +1,9 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "dependencies": {
+    "browser-sync": "^2.7.13",
+    "gulp": "^3.9.0",
+    "gulp-tsc": "^0.10.1"
+  }
+}
