@@ -32,6 +32,6 @@
             }
         });
         
-        gulp.watch(['./src/**/*.ts', './src/*.ts'], ['js-watch']);
+        gulp.watch('./src/**/*.ts', ['js-watch']);
     });
 })();
