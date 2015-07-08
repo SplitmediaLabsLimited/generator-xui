@@ -1,6 +1,6 @@
 {
   "name": "generator-xui",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Yeoman generator for XUI Framework",
   "repository": "git://github.com/SplitmediaLabsLimited/generator-xui.git",
   "files": [
